@@ -69,7 +69,7 @@ for cycle in cycles:
             if w in cycle:
                 i = cycle.index(w)
                 # check if the duration between this release and the previous one is allowed (first parameter in constraint)
-                if len_cycle != [0] and (cycle[i + 1] - w not in len_cycle or w - cycle[i - 1] not in len_cycle):
+                if len_cycle != [0] and ((i + 1 < len(cycle) and cycle[i + 1] - w not in len_cycle) or (i - 1 >= 0 and w - cycle[i - 1] not in len_cycle)):
                     ok = False
                 else:
                     ok = True
