@@ -1,21 +1,34 @@
 from isoweek import Week
 
+# The first version of the year (just for pretty print)
+first_version = 44
+
+# Current year
+current_year = 2016
+
 # Constraints
 
 # First week
 first_week = 4
-first_version = 44
 
 # Allowed cycles
 allowed_cycles = [6, 7, 8]
 
-# Work weeks 
+# Work weeks
+# week => [ [allowed_duration...], +/-i, +/-j, ... ]
+# allowed_duration is the number of weeks with the previous release
+#    if allowed_duration is 0 then the duration doesn't matter
+# +/-i is the allowed week after/before the ww
+# For example: 24: [[7, 8], -1, -2]
+#   we want a release in 23 or 22 and the diff with the previous one must be 7 or 8 weeks
+#
 constraints = {24: [[7, 8], -1, -2], # ww in London
                49: [[7, 8], -1, -2], # ww in Hawaii
                45: [[7, 8], +1], # Mozilla's birthday
 #               12: [[0], +1, +2], # pwn2own
 }
 
+# Other kind of constraint: no release during these weeks
 forbidden_weeks = set([27, # Independance Day
                        47, # Thanksgiving
                        52, # Last week of the year
@@ -50,10 +63,12 @@ for cycle in cycles:
         len_cycle = v[0]
         possibilities = v[1:]
         ok = True
+        # check all the allowed possibilities (+1, +2, ...)
         for possibility in possibilities:
             w = k + possibility
             if w in cycle:
                 i = cycle.index(w)
+                # check if the duration between this release and the previous one is allowed (first parameter in constraint)
                 if len_cycle != [0] and (cycle[i + 1] - w not in len_cycle or w - cycle[i - 1] not in len_cycle):
                     ok = False
                 else:
@@ -69,6 +84,7 @@ for cycle in cycles:
     if cycle_ok:
         good_cycles.append(cycle)
 
+# Pretty print of the results (if any)
 n = 1
 for cycle in good_cycles:
     print 'Possibility ' + str(n) + ':'
@@ -78,9 +94,9 @@ for cycle in good_cycles:
         c = cycle[i]
         if c > 52:
             c = c - 52
-            w = Week(2017, c)
+            w = Week(current_year + 1, c)
         else:
-            w = Week(2016, c)
+            w = Week(current_year, c)
         tue = str(w.tuesday())
         j = tue.rfind('-')
         ym = tue[0:j]
