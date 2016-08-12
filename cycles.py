@@ -1,10 +1,10 @@
 from isoweek import Week
 
 # The first version of the year (just for pretty print)
-first_version = 44
+first_version = 52
 
 # Current year
-current_year = 2016
+current_year = 2017
 
 # Constraints
 
@@ -22,9 +22,9 @@ allowed_cycles = [6, 7, 8]
 # For example: 24: [[7, 8], -1, -2]
 #   we want a release in 23 or 22 and the diff with the previous one must be 7 or 8 weeks
 #
-constraints = {24: [[7, 8], -1, -2], # ww in London
-               49: [[7, 8], -1, -2], # ww in Hawaii
-               45: [[7, 8], +1], # Mozilla's birthday
+constraints = {26: [[7, 8], -1, -2],  # ww in SF
+               50: [[7, 8], -1, -2],  # ww in Cancun
+#               45: [[7, 8], +1],  # Mozilla's birthday
 #               12: [[0], +1, +2], # pwn2own
 }
 
@@ -48,7 +48,7 @@ for i in range(1, 9):
             else:
                 if i == 0:
                     nuple.append(c)
-            
+
     cycles = nuple
 
 good_cycles = []
@@ -88,6 +88,7 @@ for cycle in cycles:
 n = 1
 for cycle in good_cycles:
     print 'Possibility ' + str(n) + ':'
+    numbers = {6:0, 7:0, 8:0}
     n += 1
     v = first_version
     for i in range(0, len(cycle)):
@@ -105,5 +106,7 @@ for cycle in good_cycles:
         else:
             d = cycle[i] - cycle[i - 1]
             print '%s - %s (W %s), %s (%s weeks cycle)' % (v, ym, c, w.tuesday(), d)
+            numbers[d] = numbers[d] + 1
         v += 1
+    print "Number of different length cycles: " + str(numbers)
     print ''
