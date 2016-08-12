@@ -88,6 +88,7 @@ for cycle in cycles:
 n = 1
 for cycle in good_cycles:
     print 'Possibility ' + str(n) + ':'
+    numbers = {6:0, 7:0, 8:0}
     n += 1
     v = first_version
     for i in range(0, len(cycle)):
@@ -105,5 +106,7 @@ for cycle in good_cycles:
         else:
             d = cycle[i] - cycle[i - 1]
             print '%s - %s (W %s), %s (%s weeks cycle)' % (v, ym, c, w.tuesday(), d)
+            numbers[d] = numbers[d] + 1
         v += 1
+    print "Number of different length cycles: " + str(numbers)
     print ''
