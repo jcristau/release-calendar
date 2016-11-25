@@ -1,0 +1,65 @@
+{
+    "normal":
+    {
+        "monday": ["Beta {{ current_beta }} Go-to-build"],
+        "tuesday": ["Beta {{ current_beta }} Released"],
+        "wednesday": [],
+        "thursday": ["Beta {{ current_beta + 1 }} Go-to-build (Desktop only)"],
+        "friday": ["Beta {{ current_beta + 1 }} Released (Desktop only)"]
+    },
+    "-3":
+    {"monday": [],
+     "tuesday": ["Commit Change to the Mozilla-Beta repo removing the EARLY_BETA def"],
+     "wednesday": [],
+     "thursday": [],
+     "friday": []
+    },
+    "-2":
+    {
+        "monday": [{"action": "append", "position": 0, "string": ", last opportunity for new locales"}],
+        "tuesday": ["Send the ESR smoke test email"],
+        "wednesday": ["Final locale check before we build RC candidate next week"],
+        "thursday": [],
+        "friday": ["Mainline Code Freeze"]
+    },
+    "-1":
+    {
+        "monday": ["Beta->Release Migration",
+                   "Build Firefox mainline off of Mozilla-Release & ESR",
+                   "Go to build on ESR",
+                   "Mobile Beta {{ current_beta }} Go-to-build (from the mozilla-beta branch)",
+                   "RC Go-to-build (from the mozilla-release branch)"],
+        "tuesday": ["RC Released to beta channel (Desktop only)",
+                    "Send GTB for Mobile Final Release Candidate"],
+        "wednesday": ["Prepare the next Beta release notes (done by the Aurora driver)",
+                      "Reminder Email for Sign offs & Feature Review tomorrow (wider list)",
+                      "Send release notes for feedback"],
+        "thursday": ["Send links to next stable release notes to comms team, release-drivers, mobile-frontend@mozilla.org, mobile-platform@mozilla.org, QA and SUMO",
+                     "Send reminder and links for Aurora/Beta feature review (done by the aurora driver)",
+                     "Sign Offs during Channel meeting"],
+        "friday": ["Check IID"]
+    },
+    "0":
+    {
+        "monday": ["Beta 1 Go-to-build",
+                   "Merge Day!",
+                   "RelEng will disable Aurora updates",
+                   "Send a Release Post Mortem Reminder"],
+        "tuesday": ["Firefox Released, 25% update rate"],
+        "wednesday": ["Beta 1 Released, Release Notes Pushed",
+                      "Draft release notes for Aurora ",
+                      "Firefox Release - Disable updates"],
+        "thursday": [],
+        "friday": ["Aurora background update enabled, Release Notes Pushed",
+                   "Firefox 100% enabled (if signed off)"]
+    },
+    "1":
+    {
+        "monday": [],
+        "tuesday": ["Release Post-Mortem in channel meeting",
+                    "Switch of meeting leader (channel+platform+planning meeting)"],
+        "wednesday": [],
+        "thursday": [],
+        "friday": []
+    }
+}
