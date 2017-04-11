@@ -7,6 +7,14 @@
         "thursday": ["Beta {{ current_beta + 1 }} Go-to-build (Desktop only)"],
         "friday": ["Beta {{ current_beta + 1 }} Released (Desktop only)"]
     },
+    "single_beta":
+    {
+        "monday": ["Beta {{ current_beta }} Go-to-build"],
+        "tuesday": ["Beta {{ current_beta }} Released"],
+        "wednesday": [],
+        "thursday": [],
+        "friday": []
+    },
     "-4":
     {"tuesday": ["Commit Change to the Mozilla-Beta repo removing the EARLY_BETA def"]
     },

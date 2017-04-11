@@ -5,6 +5,7 @@
     "year": 2017,
     "allowed_cycles": [6, 7, 8],
     "forbidden_weeks": [27, 47, 52],
+    "single_beta": [27, 47, 50, 52, 101],
     "constraints":
     {
         "26":

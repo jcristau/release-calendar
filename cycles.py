@@ -33,6 +33,7 @@ class Cycles(object):
         self.allowed_cycles = constraints['allowed_cycles']
         self.forbidden_weeks = constraints['forbidden_weeks']
         self.constraints = constraints['constraints']
+        self.single_beta = constraints['single_beta']
         self.cycles = None
 
     def __check(self, constraints):
@@ -70,6 +71,8 @@ class Cycles(object):
                         _x.add(i)
             return _x
 
+        single_beta = forbidden_weeks
+
         def _constraints(x):
             _x = {}
             if isinstance(x, dict):
@@ -102,6 +105,7 @@ class Cycles(object):
                'year': year,
                'allowed_cycles': allowed_cycles,
                'forbidden_weeks': forbidden_weeks,
+               'single_beta': single_beta,
                'constraints': _constraints}
 
         if not isinstance(constraints, dict):
@@ -247,7 +251,7 @@ class Cycles(object):
                         cal.add_component(e)
 
     def get_range(self, conf):
-        return sorted([self.get_int(k) for k in conf.keys() if k != 'normal'])
+        return sorted([self.get_int(k) for k in conf.keys() if k != 'normal' and k != 'single_beta'])
 
     def create_calendar(self, n, conf, last_beta):
         fw = self.get_forbidden_weeks()
@@ -273,16 +277,24 @@ class Cycles(object):
                 index = str(j)
                 monday = base_monday + timedelta(j * 7)
                 week = monday.isocalendar()[1]
-                if j in {-1, 0} or (i == 0 and j < 0) or week in fw:
+                if week in self.single_beta:
+                    normal_entry = conf['single_beta']
+                else:
+                    normal_entry = conf['normal']
+                if j in {-1, 0} or (i == 0 and j < 0):
                     # no beta here
                     if index in conf:
                         entry = conf[index]
+                    else:
+                        entry = []
                 elif index in conf:
-                    entry = self.merge_entries(conf['normal'], conf[index])
+                    entry = self.merge_entries(normal_entry, conf[index])
                 else:
-                    entry = conf['normal']
+                    entry = normal_entry
                 self.add_entries(cal, monday, entry, current_beta=beta)
-                if week not in fw:
+                if week in self.single_beta:
+                    beta += 1
+                else:
                     beta += 2
 
         return cal
