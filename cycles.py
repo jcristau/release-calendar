@@ -258,8 +258,14 @@ class Cycles(object):
             c = cycle[i]
             duration = c['duration']
             base_monday = c['monday']
+            start = rng[0]
+            if duration:
+                end = duration + rng[0]
+            else:
+                # last cycle, we don't know when it ends, so keep going for just a few weeks
+                end = rng[-1] + 1
 
-            for j in rng + list(range(rng[-1] + 1, duration + rng[0])):
+            for j in range(start, end):
                 if i == 0 and j < 0:
                     beta = last_beta
                 if j == 1:
