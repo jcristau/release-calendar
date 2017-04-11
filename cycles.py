@@ -222,7 +222,7 @@ class Cycles(object):
         for day in self.WEEK:
             ne = copy(normal_entry[day])
             new_entry[day] = ne
-            e = entry[day]
+            e = entry.get(day, ())
             for s in e:
                 if isinstance(s, six.string_types):
                     ne.append(s)

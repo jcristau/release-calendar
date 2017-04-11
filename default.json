@@ -8,18 +8,13 @@
         "friday": ["Beta {{ current_beta + 1 }} Released (Desktop only)"]
     },
     "-3":
-    {"monday": [],
-     "tuesday": ["Commit Change to the Mozilla-Beta repo removing the EARLY_BETA def"],
-     "wednesday": [],
-     "thursday": [],
-     "friday": []
+    {"tuesday": ["Commit Change to the Mozilla-Beta repo removing the EARLY_BETA def"]
     },
     "-2":
     {
         "monday": [{"action": "append", "position": 0, "string": ", last opportunity for new locales"}],
         "tuesday": ["Send the ESR smoke test email"],
         "wednesday": ["Final locale check before we build RC candidate next week"],
-        "thursday": [],
         "friday": ["Mainline Code Freeze"]
     },
     "-1":
@@ -49,17 +44,12 @@
         "wednesday": ["Beta 1 Released, Release Notes Pushed",
                       "Draft release notes for Aurora ",
                       "Firefox Release - Disable updates"],
-        "thursday": [],
         "friday": ["Aurora background update enabled, Release Notes Pushed",
                    "Firefox 100% enabled (if signed off)"]
     },
     "1":
     {
-        "monday": [],
         "tuesday": ["Release Post-Mortem in channel meeting",
                     "Switch of meeting leader (channel+platform+planning meeting)"],
-        "wednesday": [],
-        "thursday": [],
-        "friday": []
     }
 }
