@@ -26,30 +26,31 @@
                    "RC Go-to-build (from the mozilla-release branch)"],
         "tuesday": ["RC Released to beta channel (Desktop only)",
                     "Send GTB for Mobile Final Release Candidate"],
-        "wednesday": ["Prepare the next Beta release notes (done by the Aurora driver)",
+        "wednesday": ["Prepare the next Beta release notes (done by the next release's owner)",
                       "Reminder Email for Sign offs & Feature Review tomorrow (wider list)",
                       "Send release notes for feedback"],
         "thursday": ["Send links to next stable release notes to comms team, release-drivers, mobile-frontend@mozilla.org, mobile-platform@mozilla.org, QA and SUMO",
-                     "Send reminder and links for Aurora/Beta feature review (done by the aurora driver)",
-                     "Sign Offs during Channel meeting"],
-        "friday": ["Check IID"]
+                     "Send reminder and links for Beta feature review (done by the next release's owner)",
+                     "Sign Offs during Channel meeting"]
     },
     "0":
     {
         "monday": ["Beta 1 Go-to-build",
                    "Merge Day!",
-                   "RelEng will disable Aurora updates",
                    "Send a Release Post Mortem Reminder"],
         "tuesday": ["Firefox Released, 25% update rate"],
-        "wednesday": ["Beta 1 Released, Release Notes Pushed",
-                      "Draft release notes for Aurora ",
+        "wednesday": ["Beta 1 Released (X% update rate), Release Notes Pushed",
                       "Firefox Release - Disable updates"],
-        "friday": ["Aurora background update enabled, Release Notes Pushed",
-                   "Firefox 100% enabled (if signed off)"]
+        "thursday": ["Beta 2 Go-to-build"],
+        "friday": ["Firefox 100% enabled (if signed off)",
+	           "Beta 2 Released"]
     },
     "1":
     {
-        "tuesday": ["Release Post-Mortem in channel meeting",
-                    "Switch of meeting leader (channel+platform+planning meeting)"],
+        "tuesday": ["Switch of channel meeting leader"]
+    },
+    "2":
+    {
+	"tuesday": ["Release Post-Mortem in channel meeting"]
     }
 }

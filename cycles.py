@@ -263,7 +263,7 @@ class Cycles(object):
                 if i == 0 and j < 0:
                     beta = last_beta
                 if j == 1:
-                    beta = 2
+                    beta = 3
                 index = str(j)
                 monday = base_monday + timedelta(j * 7)
                 week = monday.isocalendar()[1]
