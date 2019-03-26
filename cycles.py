@@ -260,6 +260,7 @@ class Cycles(object):
         cal = Calendar()
         cycle = self.select(n)
         rng = self.get_range(conf)
+        version = self.first_version
         for i in range(len(cycle)):
             c = cycle[i]
             duration = c['duration']
@@ -293,7 +294,7 @@ class Cycles(object):
                     entry = self.merge_entries(normal_entry, conf[index])
                 else:
                     entry = normal_entry
-                self.add_entries(cal, monday, entry, current_beta=beta)
+                self.add_entries(cal, monday, entry, current_beta=beta, release=version+i)
                 if week in self.single_beta:
                     beta += 1
                 else:
