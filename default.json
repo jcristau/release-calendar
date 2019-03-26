@@ -22,8 +22,7 @@
     {
         "monday": [{"action": "append", "position": 0, "string": ", last opportunity for new locales"}],
         "tuesday": ["Send the ESR smoke test email"],
-        "wednesday": ["Final locale check before we build RC candidate next week"],
-        "friday": ["Mainline Code Freeze"]
+        "wednesday": ["Final locale check before we build RC candidate next week"]
     },
     "-1":
     {
@@ -31,34 +30,45 @@
                    "Build Firefox mainline off of Mozilla-Release & ESR",
                    "Go to build on ESR",
                    "Mobile Beta {{ current_beta }} Go-to-build (from the mozilla-beta branch)",
-                   "RC Go-to-build (from the mozilla-release branch)"],
+                   "Nightly Soft Code Freeze",
+                   "DevEd {{ release + 1 }} beta 1 Go-to-build",
+                   "{{ release }} RC Go-to-build (from the mozilla-release branch)"],
         "tuesday": ["RC Released to beta channel (Desktop only)",
+                    "DevEd beta 1 released",
                     "Send GTB for Mobile Final Release Candidate"],
         "wednesday": ["Prepare the next Beta release notes (done by the next release's owner)",
                       "Reminder Email for Sign offs & Feature Review tomorrow (wider list)",
                       "Send release notes for feedback"],
         "thursday": ["Send links to next stable release notes to comms team, release-drivers, mobile-frontend@mozilla.org, mobile-platform@mozilla.org, QA and SUMO",
                      "Send reminder and links for Beta feature review (done by the next release's owner)",
-                     "Sign Offs during Channel meeting"]
+                     "DevEd beta 2 gtb",
+                     "Sign Offs during Channel meeting"],
+        "friday": ["DevEd beta 2 released"]
     },
     "0":
     {
-        "monday": ["Beta 1 Go-to-build",
+        "monday": ["Beta 3 Go-to-build",
                    "Merge Day!",
+                   "End of Soft Code Freeze on central",
                    "Send a Release Post Mortem Reminder"],
         "tuesday": ["Firefox Released, 25% update rate"],
-        "wednesday": ["Beta 1 Released (X% update rate), Release Notes Pushed",
+        "wednesday": ["Beta 3 Released (X% update rate), Release Notes Pushed",
                       "Firefox Release - Disable updates"],
-        "thursday": ["Beta 2 Go-to-build"],
+        "thursday": ["Beta 4 Go-to-build"],
         "friday": ["Firefox 100% enabled (if signed off)",
-	           "Beta 2 Released"]
+	           "Beta 4 Released"]
     },
     "1":
     {
-        "tuesday": ["Switch of channel meeting leader"]
+        "tuesday": ["Switch of channel meeting leader"],
+        "friday": ["PI request deadline"]
     },
     "2":
     {
 	"tuesday": ["Release Post-Mortem in channel meeting"]
+    },
+    "4":
+    {
+        "friday": ["Feature technical documentation due"]
     }
 }
