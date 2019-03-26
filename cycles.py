@@ -172,8 +172,7 @@ class Cycles(object):
 
     def find(self):
         #cycles = self.apply_constraints(self.generate_all_cycles())
-        #cycles = [[4, 10, 16, 24, 32, 39, 46, 54, 62, 70, 78, 86, 94, 100]]
-        cycles = [[5, 12, 20, 28, 35, 42, 49]]
+        cycles = [[5, 12, 20, 28, 36, 43, 50]]
         # we have just a list of week numbers, so we need to make it clearer
         new_cycles = []
         for cycle in cycles:
@@ -260,14 +259,15 @@ class Cycles(object):
         cal = Calendar()
         cycle = self.select(n)
         rng = self.get_range(conf)
-        version = self.first_version
+        release_version = self.first_version - 1
+        beta_version = self.first_version
         for i in range(len(cycle)):
             c = cycle[i]
             duration = c['duration']
             base_monday = c['monday']
             start = rng[0]
             if duration:
-                end = duration + rng[0]
+                end = start + duration
             else:
                 # last cycle, we don't know when it ends, so keep going for just a few weeks
                 end = rng[-1] + 1
@@ -276,7 +276,10 @@ class Cycles(object):
                 if i == 0 and j < 0:
                     beta = last_beta
                 if j == 1:
-                    beta = 3
+                    beta = 5
+                if j == -1:
+                    beta_version += 1
+                    release_version += 1
                 index = str(j)
                 monday = base_monday + timedelta(j * 7)
                 week = monday.isocalendar()[1]
@@ -294,7 +297,7 @@ class Cycles(object):
                     entry = self.merge_entries(normal_entry, conf[index])
                 else:
                     entry = normal_entry
-                self.add_entries(cal, monday, entry, current_beta=beta, release=version+i)
+                self.add_entries(cal, monday, entry, current_beta=beta, release=release_version, beta=beta_version)
                 if week in self.single_beta:
                     beta += 1
                 else:
