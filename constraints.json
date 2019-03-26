@@ -1,11 +1,11 @@
 {
     "nreleases": 8,
     "first_week": 4,
-    "first_version": 51,
-    "year": 2017,
+    "first_version": 65,
+    "year": 2019,
     "allowed_cycles": [6, 7, 8],
     "forbidden_weeks": [27, 47, 52],
-    "single_beta": [27, 47, 50, 52, 101],
+    "single_beta": [51, 52],
     "constraints":
     {
         "26":
